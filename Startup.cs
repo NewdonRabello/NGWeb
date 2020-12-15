@@ -44,9 +44,9 @@ namespace NGWebV1
                     ValidateAudience = false
                 };
             });
-            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
-            //services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
-            //services.AddScoped<DataContext, DataContext>(); //Garante que tenha apenas 1 DataContext por requisição
+            //services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+            services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
+            services.AddScoped<DataContext, DataContext>(); //Garante que tenha apenas 1 DataContext por requisição
 
             services.AddSwaggerGen(c =>
             {
